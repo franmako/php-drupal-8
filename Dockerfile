@@ -1,6 +1,6 @@
 
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
-FROM php:7.3-apache
+FROM php:7.3-fpm
 
 # install the PHP extensions we need
 # postgresql-dev is needed for https://bugs.alpinelinux.org/issues/3642
@@ -59,5 +59,3 @@ RUN chmod +x drush.phar \
     && mv drush.phar /usr/local/bin/drush
 
 COPY .docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache-recommended.ini
-
-WORKDIR /srv/drupal
